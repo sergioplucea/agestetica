@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alejandra Galeano – Estética de Uñas y Belleza</title>
+
+  <!-- Tipografías Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #050308;
+      --bg-soft: #1a101a;
+      --gold: #cfa34f;
+      --gold-soft: #f5d7a3;
+      --rose: #f26ca7;
+      --rose-dark: #c23e80;
+      --text: #f7f4ff;
+      --text-muted: #c6bed6;
+      --card-bg: rgba(10, 5, 20, 0.9);
+      --radius-xl: 24px;
+      --shadow-soft: 0 20px 50px rgba(0,0,0,0.65);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #30153a 0, #050308 55%, #020106 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 18px;
+    }
+
+    /* Layout base */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(90deg, rgba(5,3,8,0.96), rgba(5,3,8,0.88));
+      border-bottom: 1px solid rgba(207,163,79,0.25);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.8rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 20% 0%, #ff8ac5, #f26ca7 40%, #8c3366 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-family: "Allura", cursive;
+      font-size: 1.4rem;
+      letter-spacing: .04em;
+      color: var(--gold-soft);
+    }
+
+    .brand-text span:last-child {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: .9rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.05rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--rose), var(--gold));
+      border-radius: 999px;
+      transition: width .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: .55rem 1.4rem;
+      font-size: .86rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      white-space: nowrap;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease, color .12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(242,108,167,0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(242,108,167,0.65);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.27);
+      color: var(--text);
+      background: transparent;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 3.5rem 1.5rem;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 3.6rem;
+      padding-bottom: 3.5rem;
+      background-image:
+        radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(242,108,167,0.16), transparent 60%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: .82rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: .75rem;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      color: var(--rose);
+    }
+
+    .hero p {
+      font-size: .98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      font-size: .84rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--rose);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, rgba(255,255,255,0.09), transparent 55%), var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(207,163,79,0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background-image: radial-gradient(circle at 10% 0, rgba(255,255,255,0.12), transparent 60%);
+      opacity: 0.5;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: .9rem;
+    }
+
+    .hero-tagline {
+      font-size: .86rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .pill {
+      font-size: .78rem;
+      padding: .25rem .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--gold-soft);
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-mini-list {
+      list-style: none;
+      font-size: .86rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: .4rem;
+    }
+
+    .hero-mini-list li::before {
+      content: "•";
+      color: var(--gold);
+      margin-right: .4rem;
+    }
+
+    /* Secciones genéricas */
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: .4rem;
+    }
+
+    .section-title p {
+      font-size: .92rem;
+      color: var(--text-muted);
+    }
+
+    /* Servicios destacados */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-card {
+      background: rgba(8, 6, 18, 0.95);
+      border-radius: 20px;
+      padding: 1.4rem 1.45rem 1.3rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(242,108,167,0.12), transparent 55%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .service-icon {
+      font-size: 1.5rem;
+      margin-bottom: .6rem;
+    }
+
+    .service-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: .35rem;
+    }
+
+    .service-card p {
+      font-size: .86rem;
+      color: var(--text-muted);
+      margin-bottom: .7rem;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .78rem;
+    }
+
+    .service-tags span {
+      padding: .15rem .55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--gold-soft);
+    }
+
+    /* Tabla de precios */
+    .prices {
+      background: radial-gradient(circle at top, rgba(255,255,255,0.07), transparent 60%);
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+
+    .price-block {
+      background: rgba(5,3,8,0.9);
+      border-radius: 20px;
+      padding: 1.3rem 1.4rem 1.2rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.65);
+    }
+
+    .price-block h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      margin-bottom: .7rem;
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: .7rem;
+      font-size: .88rem;
+      padding: .22rem 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.08);
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+    }
+
+    .price-row span:first-child {
+      color: var(--text-muted);
+    }
+
+    .price-row span:last-child {
+      color: #ffffff;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .price-note {
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    /* Galería */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 60%);
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      left: .75rem;
+      bottom: .6rem;
+      font-size: .78rem;
+      color: #fdfbff;
+      z-index: 2;
+    }
+
+    /* Contacto */
+    .contact {
+      background: radial-gradient(circle at bottom, rgba(242,108,167,0.15), transparent 55%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .contact-card {
+      background: rgba(7,4,12,0.9);
+      border-radius: 20px;
+      padding: 1.5rem 1.6rem 1.3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      margin-bottom: .7rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: .9rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: .5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .contact-list span.label {
+      font-weight: 600;
+      color: var(--gold-soft);
+    }
+
+    .hours {
+      font-size: .84rem;
+      color: var(--text-muted);
+    }
+
+    .hours p {
+      margin-bottom: .15rem;
+    }
+
+    .contact-form {
+      background: rgba(5,3,8,0.92);
+      border-radius: 20px;
+      padding: 1.4rem 1.5rem 1.3rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-form h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: .8rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: .75rem;
+      margin-bottom: .7rem;
+    }
+
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      margin-bottom: .7rem;
+    }
+
+    label {
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+
+    input, select, textarea {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(3,2,6,0.9);
+      color: var(--text);
+      padding: .55rem .85rem;
+      font-size: .88rem;
+      outline: none;
+    }
+
+    textarea {
+      border-radius: 16px;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 1px rgba(242,108,167,0.4);
+    }
+
+    footer {
+      padding: 1.5rem 1.5rem 2rem;
+      background: #030205;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: .75rem;
+    }
+
+    .footer-social a {
+      padding: .2rem .4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: .8rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-grid,
+      .services-grid,
+      .price-grid,
+      .contact-grid,
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 2.7rem;
+      }
+      .hero-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 3rem 1rem;
+      }
+      .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- HEADER / NAV -->
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <div class="brand-mark">AG</div>
+        <div class="brand-text">
+          <span>Alejandra Galeano</span>
+          <span>Estética de Uñas y Belleza</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#precios">Precios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="tel:+34632797084">Llamar</a>
+        <a class="btn btn-primary" href="https://wa.me/34632797084" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">Pamplona · Belleza de manos, cejas y mirada</div>
+          <h1>Estética de <span>Uñas y Cejas</span> en un espacio pensado para ti</h1>
+          <p>
+            En Alejandra Galeano – Estética de Uñas y Belleza cuidamos cada detalle para resaltar tu belleza
+            natural con manicuras, pedicuras, micropigmentación de cejas y pestañas pelo a pelo.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="https://wa.me/34632797084" target="_blank" rel="noopener">
+              💬 Reservar por WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="#precios">
+              Ver servicios y precios
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span><span class="dot"></span> C/ Francisco Bergamín 45, bajo · Pamplona</span>
+            <span><span class="dot"></span> Especialistas en uñas y cejas</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Tu momento de belleza</h2>
+          <p class="hero-tagline">
+            Un ambiente relajado, productos de calidad y la atención cercana de Alejandra en cada servicio.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Manicura &amp; pedicura</span>
+            <span class="pill">Micropigmentación de cejas</span>
+            <span class="pill">Pestañas pelo a pelo</span>
+          </div>
+          <ul class="hero-mini-list">
+            <li>Asesoramiento personalizado según tu estilo.</li>
+            <li>Resultados elegantes y duraderos.</li>
+            <li>Ideal para tu día a día o eventos especiales.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICIOS DESTACADOS -->
+    <section id="servicios">
+      <div class="container">
+        <div class="section-title">
+          <h2>Qué hacemos por ti</h2>
+          <p>Servicios pensados para manos, cejas, mirada y cabello, con un enfoque especial en uñas y micropigmentación de cejas.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">💅</div>
+            <h3>Uñas</h3>
+            <p>Manicuras y pedicuras completas, tradicionales o semipermanentes, con acabados limpios y elegantes.</p>
+            <div class="service-tags">
+              <span>Manicura completa</span>
+              <span>Semipermanente</span>
+              <span>Uñas acrílicas</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">👁</div>
+            <h3>Cejas &amp; Micropigmentación</h3>
+            <p>
+              Diseño y micropigmentación de cejas con técnica pelo a pelo para una mirada definida y natural.
+            </p>
+            <div class="service-tags">
+              <span>Micropigmentación</span>
+              <span>Diseño de cejas</span>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✨</div>
+            <h3>Pestañas &amp; Pelo</h3>
+            <p>
+              Pestañas postizas pelo a pelo, 2D y 3D, además de tratamientos de keratina orgánica y peinados.
+            </p>
+            <div class="service-tags">
+              <span>Pestañas 2D · 3D</span>
+              <span>Keratina orgánica</span>
+              <span>Lavar y peinar</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section id="precios" class="prices">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestros servicios y precios</h2>
+          <p>Transparencia desde el primer momento. Estos son los precios base de nuestros servicios más demandados.</p>
+        </div>
+
+        <div class="price-grid">
+          <div class="price-block">
+            <h3>Uñas</h3>
+            <div class="price-row">
+              <span>Manicura completa semipermanente</span>
+              <span>18€</span>
+            </div>
+            <div class="price-row">
+              <span>Manicura completa tradicional</span>
+              <span>15€</span>
+            </div>
+            <div class="price-row">
+              <span>Manicura hombres</span>
+              <span>14€</span>
+            </div>
+            <div class="price-row">
+              <span>Uñas acrílicas</span>
+              <span>35€</span>
+            </div>
+          </div>
+
+          <div class="price-block">
+            <h3>Pedicura</h3>
+            <div class="price-row">
+              <span>Pedicura completa semipermanente</span>
+              <span>25€</span>
+            </div>
+            <div class="price-row">
+              <span>Pedicura completa tradicional</span>
+              <span>22€</span>
+            </div>
+            <div class="price-row">
+              <span>Pedicura hombres</span>
+              <span>18€</span>
+            </div>
+          </div>
+
+          <div class="price-block">
+            <h3>Cejas</h3>
+            <div class="price-row">
+              <span>Micropigmentación con técnica pelo a pelo</span>
+              <span>Consultar</span>
+            </div>
+            <div class="price-row">
+              <span>Depilación de cejas con diseño</span>
+              <span>Consultar</span>
+            </div>
+          </div>
+
+          <div class="price-block">
+            <h3>Pestañas &amp; Pelo</h3>
+            <div class="price-row">
+              <span>Pestañas postizas pelo a pelo, 2D y 3D</span>
+              <span>Consultar</span>
+            </div>
+            <div class="price-row">
+              <span>Keratina orgánica</span>
+              <span>Consultar</span>
+            </div>
+            <div class="price-row">
+              <span>Lavar y peinar</span>
+              <span>Consultar</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="price-note">
+          Los precios pueden variar según el diseño, la longitud o el trabajo a realizar.
+          En tu visita, Alejandra te aconsejará la mejor opción para ti.
+        </p>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-title">
+          <h2>Trabajos y resultados</h2>
+          <p>Algunas ideas del estilo y acabado que encontrarás en el salón. Sustituye estas imágenes por tus fotos reales.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Sustituye src por tus propias imágenes de trabajos -->
+          <div class="gallery-item">
+            <img src="img/uñas-01.jpg" alt="Manicura con diseño elegante">
+            <span>Manicura semipermanente</span>
+          </div>
+          <div class="gallery-item">
+            <img src="img/cejas-01.jpg" alt="Micropigmentación de cejas">
+            <span>Micropigmentación de cejas</span>
+          </div>
+          <div class="gallery-item">
+            <img src="img/pestañas-01.jpg" alt="Pestañas pelo a pelo">
+            <span>Pestañas pelo a pelo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Reserva tu cita</h2>
+          <p>Pídenos hora por WhatsApp, teléfono o a través del formulario y te confirmaremos lo antes posible.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Datos de contacto</h3>
+            <ul class="contact-list">
+              <li><span class="label">Dirección:</span> C/ Francisco Bergamín 45, bajo, 31004 Pamplona</li>
+              <li><span class="label">Teléfono / WhatsApp:</span> <a href="tel:+34632797084">632 797 084</a></li>
+              <li><span class="label">Instagram:</span> @ag.esteticaybelleza (ejemplo, cámbialo cuando lo tengas)</li>
+            </ul>
+            <div class="hours">
+              <p><strong>Horario orientativo:</strong></p>
+              <p>Lunes a viernes · 10:00 – 19:00</p>
+              <p>Sábados · Consultar disponibilidad</p>
+            </div>
+          </div>
+
+          <form class="contact-form" action="#" method="post">
+            <!-- Si más adelante usas un servicio de formularios, cambia action="#" -->
+            <h3>Envíanos un mensaje</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" name="telefono" type="tel" placeholder="Tu teléfono" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" name="servicio">
+                <option value="">Selecciona una opción</option>
+                <option value="manicura">Manicura / Uñas</option>
+                <option value="pedicura">Pedicura</option>
+                <option value="cejas">Cejas / Micropigmentación</option>
+                <option value="pestanas">Pestañas</option>
+                <option value="pelo">Pelo</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Cuéntanos qué necesitas</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Ej: Quiero reservar una manicura semipermanente para la semana que viene."></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© <span id="year"></span> Alejandra Galeano – Estética de Uñas y Belleza · Pamplona</p>
+      <div class="footer-social">
+        <a href="https://wa.me/34632797084" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Año automático en el footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
