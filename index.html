@@ -68,7 +68,7 @@
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.8rem 1.25rem;
+      padding: 1rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -672,14 +672,40 @@
         justify-content: center;
       }
     }
- .nav-logo {
-  max-height: 60px;
-  width: auto;
-}
+
 @media (max-width: 600px) {
   .nav-logo {
-    max-height: 40px;
+    max-height: 50px;
   }
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-logo {
+  max-height: 70px;
+  width: auto;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-family: "Allura", cursive;
+  font-size: 1.3rem;
+  color: var(--gold-soft);
+}
+
+.brand-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
   </style>
@@ -692,14 +718,17 @@
   <header>
     <nav class="nav">
 <div class="brand">
-  <a href="#inicio">
-    <img 
-      src="img/Logo Transparente.png"
-      alt="Alejandra Galeano"
-      class="nav-logo"
-    >
-  </a>
+  <img 
+    src="img/Logo Transparente.png"
+    alt="Alejandra Galeano – Estética de Uñas y Belleza"
+    class="nav-logo"
+  >
+  <div class="brand-text">
+    <span class="brand-name">Alejandra Galeano</span>
+    <span class="brand-sub">Estética de Uñas y Belleza</span>
+  </div>
 </div>
+
 
 
       <div class="nav-links">
