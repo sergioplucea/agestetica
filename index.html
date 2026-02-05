@@ -715,6 +715,20 @@
   text-transform: uppercase;
   color: var(--text-muted);
 }
+    
+/* Ocultar botón WhatsApp en desktop */
+@media (min-width: 769px) {
+  .nav-cta {
+    display: none;
+  }
+}
+
+/* Mostrar botón WhatsApp solo en móvil */
+@media (max-width: 768px) {
+  .nav-cta {
+    display: flex;
+  }
+}
 
   </style>
 </head>
