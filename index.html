@@ -672,7 +672,25 @@
         justify-content: center;
       }
     }
-  
+  .hero-logo {
+  max-width: 190px;
+  margin-bottom: 1.2rem;
+}
+@media (max-width: 600px) {
+  .hero-logo {
+    max-width: 140px;
+  }
+}
+.nav-logo {
+  max-height: 48px;
+  width: auto;
+}
+@media (max-width: 600px) {
+  .nav-logo {
+    max-height: 40px;
+  }
+}
+
   </style>
 </head>
 
@@ -682,13 +700,17 @@
   <!-- HEADER / NAV -->
   <header>
     <nav class="nav">
-      <div class="brand">
-        <div class="brand-mark">AG</div>
-        <div class="brand-text">
-          <span>Alejandra Galeano</span>
-          <span>Estética de Uñas y Belleza</span>
-        </div>
-      </div>
+<div class="brand">
+  <a href="#inicio">
+    <img 
+      src="IMG/logo transparente.png"
+      alt="Alejandra Galeano – Estética de Uñas y Belleza"
+      class="nav-logo"
+    >
+  </a>
+</div>
+
+
       <div class="nav-links">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
@@ -717,7 +739,7 @@
         class="hero-logo"
       >
 
-      <div class="hero-kicker">Pamplona · Belleza de manos, cejas y mirada</div>
+      <div class="hero-kicker">Belleza de manos, cejas y mirada</div>
 
       <h1>Estética de <span>Uñas y Cejas</span> en un espacio pensado para ti</h1>
 
